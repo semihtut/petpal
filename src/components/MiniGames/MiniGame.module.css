@@ -4,7 +4,7 @@
   min-height: 100vh;
   min-height: 100dvh;
   padding: 24px;
-  background: linear-gradient(180deg, #FFF8E7 0%, #FFE4D6 100%);
+  background: var(--nordic-bg);
 }
 
 .container.nightTheme {
@@ -27,14 +27,14 @@
 .title {
   font-size: 20px;
   font-weight: 700;
-  color: #3D3D3D;
+  color: var(--nordic-text);
   margin: 0;
 }
 
 .score {
   font-size: 16px;
   font-weight: 600;
-  color: #5D5D5D;
+  color: var(--nordic-text-muted);
 }
 
 /* Ready Screen */
@@ -59,7 +59,7 @@
 
 .instructions p {
   font-size: 18px;
-  color: #5D5D5D;
+  color: var(--nordic-text-muted);
   margin: 0;
 }
 
@@ -75,15 +75,19 @@
 .gameArea {
   flex: 1;
   position: relative;
-  background: rgba(255, 255, 255, 0.5);
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
   border-radius: 24px;
   overflow: hidden;
   min-height: 300px;
   touch-action: none;
+  box-shadow: var(--glass-shadow);
 }
 
 .gameArea.parkBackground {
-  background: linear-gradient(180deg, #87CEEB 0%, #98D8C8 50%, #7BC88C 100%);
+  background: linear-gradient(180deg, #A8C5D9 0%, #B8D4C8 50%, #9BC4A8 100%);
 }
 
 /* Ball Catch */
@@ -192,16 +196,19 @@
   align-items: center;
   gap: 6px;
   padding: 16px 8px;
-  border: 3px solid transparent;
+  border: 2px solid transparent;
   border-radius: 16px;
-  background: white;
+  background: var(--glass-bg-strong);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
   cursor: pointer;
   transition: all 0.2s ease;
 }
 
 .portionCard.selectedPortion {
-  border-color: #FF9B85;
-  background: #FFF8E7;
+  border-color: var(--nordic-accent);
+  background: var(--nordic-soft-white);
+  box-shadow: 0 4px 16px rgba(124, 158, 178, 0.25);
 }
 
 .portionScoops {
@@ -211,24 +218,24 @@
 .portionLabel {
   font-size: 14px;
   font-weight: 700;
-  color: #3D3D3D;
+  color: var(--nordic-text);
 }
 
 .portionDesc {
   font-size: 11px;
-  color: #8D8D8D;
+  color: var(--nordic-text-muted);
   text-align: center;
 }
 
 .portionHunger {
   font-size: 12px;
   font-weight: 600;
-  color: #FF9B85;
+  color: var(--nordic-accent);
 }
 
 .portionBonus {
   font-size: 11px;
-  color: #98D8C8;
+  color: var(--nordic-success);
   font-weight: 600;
 }
 
@@ -286,7 +293,7 @@
 .resultTitle {
   font-size: 24px;
   font-weight: 700;
-  color: #3D3D3D;
+  color: var(--nordic-text);
   margin: 0;
 }
 
@@ -297,17 +304,21 @@
 .resultScore {
   font-size: 32px;
   font-weight: 700;
-  color: #FF9B85;
+  color: var(--nordic-accent);
   margin: 0;
 }
 
 .bonus {
   padding: 12px 24px;
-  background: linear-gradient(135deg, #FFE4B5 0%, #FFD699 100%);
-  border-radius: 12px;
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
   font-size: 16px;
   font-weight: 600;
-  color: #5D5D5D;
+  color: var(--nordic-text);
+  box-shadow: var(--glass-shadow);
 }
 
 /* Memory Match */
@@ -326,19 +337,23 @@
   align-items: center;
   justify-content: center;
   font-size: 28px;
-  background: linear-gradient(135deg, #E8D5B7, #D4C4A8);
-  border: none;
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
   border-radius: 12px;
   cursor: pointer;
   transition: all 0.3s;
 }
 
 .memoryCard.flipped {
-  background: linear-gradient(135deg, #FFF8E7, #FFE4B5);
+  background: var(--nordic-soft-white);
+  border-color: var(--nordic-accent-light);
 }
 
 .memoryCard.matched {
-  background: linear-gradient(135deg, #98D8C8, #7BC4B4);
+  background: linear-gradient(135deg, var(--nordic-success), #6BA35A);
+  border-color: var(--nordic-success);
   cursor: default;
 }
 
@@ -367,20 +382,24 @@
   width: 64px;
   height: 64px;
   font-size: 28px;
-  background: rgba(255, 255, 255, 0.9);
-  border: none;
+  background: var(--glass-bg-strong);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
   border-radius: 50%;
   cursor: pointer;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--glass-shadow);
+  transition: all 0.2s;
 }
 
 .controlBtn:active {
   transform: scale(0.95);
+  background: var(--nordic-accent-light);
 }
 
 /* Agility Run */
 .trackBackground {
-  background: linear-gradient(180deg, #87CEEB 0%, #90EE90 60%, #8B4513 100%);
+  background: linear-gradient(180deg, #A8C5D9 0%, #B8D8C4 60%, #A67C52 100%);
 }
 
 .agilityDog {
@@ -410,13 +429,19 @@
   padding: 12px 24px;
   font-size: 16px;
   font-weight: bold;
-  background: rgba(255, 255, 255, 0.9);
-  border: none;
-  border-radius: 12px;
+  background: var(--glass-bg-strong);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
   cursor: pointer;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--glass-shadow);
+  color: var(--nordic-text);
+  transition: all 0.2s;
 }
 
 .agilityBtn:active {
   transform: scale(0.95);
+  background: var(--nordic-accent-light);
+  color: white;
 }

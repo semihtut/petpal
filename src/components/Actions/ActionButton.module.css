@@ -9,8 +9,11 @@
   padding: 8px;
   border: none;
   border-radius: 16px;
-  background: white;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  background: var(--glass-bg-strong);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
   cursor: pointer;
   transition: all 0.2s ease;
 }
@@ -21,12 +24,17 @@
 }
 
 .button:hover:not(:disabled) {
-  background: var(--action-color);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+  background: var(--action-color, var(--nordic-accent-light));
+  box-shadow: 0 6px 20px rgba(124, 158, 178, 0.25);
+  transform: translateY(-2px);
 }
 
 .button:hover:not(:disabled) .label {
   color: white;
+}
+
+.button:active:not(:disabled) {
+  transform: translateY(0) scale(0.98);
 }
 
 .icon {
@@ -37,6 +45,6 @@
 .label {
   font-size: 11px;
   font-weight: 600;
-  color: #5D5D5D;
+  color: var(--nordic-text-muted);
   transition: color 0.2s ease;
 }

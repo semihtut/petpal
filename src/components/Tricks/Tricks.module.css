@@ -1,25 +1,30 @@
 .container {
   padding: 16px;
-  background: #FFF;
-  border-radius: 16px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  background: var(--glass-bg);
+  border-radius: 20px;
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
 }
 
 .title {
-  font-size: 1.1rem;
-  color: #5D4E37;
+  font-size: 1rem;
+  color: var(--nordic-text);
   margin-bottom: 12px;
   text-align: center;
+  font-weight: 600;
 }
 
 .cooldown {
   text-align: center;
-  padding: 8px;
-  background: #FFE4B5;
-  border-radius: 8px;
+  padding: 8px 12px;
+  background: rgba(124, 158, 178, 0.15);
+  border-radius: 10px;
   margin-bottom: 12px;
-  font-size: 0.9rem;
-  color: #8B7355;
+  font-size: 0.85rem;
+  color: var(--nordic-accent);
+  font-weight: 500;
 }
 
 .tricksList {
@@ -30,6 +35,15 @@
   -webkit-overflow-scrolling: touch;
 }
 
+.tricksList::-webkit-scrollbar {
+  height: 4px;
+}
+
+.tricksList::-webkit-scrollbar-thumb {
+  background: rgba(124, 158, 178, 0.3);
+  border-radius: 2px;
+}
+
 .trickButton {
   position: relative;
   display: flex;
@@ -38,17 +52,18 @@
   gap: 4px;
   padding: 12px 16px;
   min-width: 70px;
-  background: linear-gradient(135deg, #FFF8E7, #FFE4B5);
-  border: 2px solid #E8D5B7;
-  border-radius: 12px;
+  background: var(--glass-bg-strong);
+  border: 1px solid var(--glass-border);
+  border-radius: 14px;
   cursor: pointer;
   transition: all 0.2s;
 }
 
 .trickButton.unlocked:hover:not(:disabled) {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(255, 155, 133, 0.2);
-  border-color: #FF9B85;
+  box-shadow: 0 6px 16px rgba(124, 158, 178, 0.2);
+  border-color: var(--nordic-accent);
+  background: var(--nordic-soft-white);
 }
 
 .trickButton.unlocked:active {
@@ -56,14 +71,14 @@
 }
 
 .trickButton.locked {
-  background: #F5F5F5;
-  border-color: #DDD;
+  background: rgba(200, 200, 200, 0.3);
+  border-color: rgba(200, 200, 200, 0.4);
   cursor: not-allowed;
 }
 
 .trickButton.performing {
-  background: linear-gradient(135deg, #98D8C8, #7BC4B4);
-  border-color: #7BC4B4;
+  background: linear-gradient(135deg, var(--nordic-accent-light), var(--nordic-accent));
+  border-color: var(--nordic-accent);
   animation: pulse 0.5s ease-in-out infinite;
 }
 
@@ -78,15 +93,16 @@
 
 .trickName {
   font-size: 0.75rem;
-  color: #5D4E37;
+  color: var(--nordic-text);
   font-weight: 600;
 }
 
 .lockOverlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.5);
-  border-radius: 10px;
+  background: rgba(44, 62, 80, 0.6);
+  backdrop-filter: blur(2px);
+  border-radius: 12px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -110,7 +126,7 @@
   top: -10px;
   left: 50%;
   transform: translateX(-50%);
-  background: #4CAF50;
+  background: var(--nordic-success);
   color: white;
   padding: 4px 8px;
   border-radius: 12px;
@@ -124,5 +140,5 @@
   margin-top: 12px;
   text-align: center;
   font-size: 0.85rem;
-  color: #8B7355;
+  color: var(--nordic-text-muted);
 }

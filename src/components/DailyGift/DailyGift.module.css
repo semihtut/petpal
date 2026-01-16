@@ -4,9 +4,10 @@
 }
 
 .title {
-  font-size: 1.5rem;
-  color: #5D4E37;
+  font-size: 1.4rem;
+  color: var(--nordic-text);
   margin-bottom: 16px;
+  font-weight: 700;
 }
 
 .streakDisplay {
@@ -15,20 +16,23 @@
   align-items: center;
   gap: 8px;
   margin-bottom: 20px;
-  padding: 12px;
-  background: linear-gradient(135deg, #FFE4B5, #FFF8E7);
-  border-radius: 12px;
+  padding: 12px 16px;
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: 14px;
 }
 
 .streakLabel {
   font-size: 0.9rem;
-  color: #8B7355;
+  color: var(--nordic-text-muted);
 }
 
 .streakValue {
   font-size: 1.2rem;
   font-weight: bold;
-  color: #FF9B85;
+  color: var(--nordic-accent);
 }
 
 .calendar {
@@ -44,23 +48,28 @@
   flex-direction: column;
   align-items: center;
   padding: 8px 4px;
-  background: #FFF;
-  border-radius: 8px;
-  border: 2px solid #E8D5B7;
+  background: var(--glass-bg-strong);
+  border-radius: 10px;
+  border: 1px solid var(--glass-border);
   transition: all 0.2s;
 }
 
 .calendarDay.past {
-  background: #E8F5E9;
-  border-color: #81C784;
-  opacity: 0.7;
+  background: rgba(127, 176, 105, 0.2);
+  border-color: var(--nordic-success);
+  opacity: 0.8;
 }
 
 .calendarDay.current {
-  background: linear-gradient(135deg, #FFE4B5, #FFCC80);
-  border-color: #FF9B85;
+  background: linear-gradient(135deg, var(--nordic-accent-light), var(--nordic-accent));
+  border-color: var(--nordic-accent);
   transform: scale(1.05);
-  box-shadow: 0 4px 12px rgba(255, 155, 133, 0.3);
+  box-shadow: 0 4px 16px rgba(124, 158, 178, 0.35);
+}
+
+.calendarDay.current .dayNumber,
+.calendarDay.current .dayCoins {
+  color: white;
 }
 
 .calendarDay.future {
@@ -69,7 +78,7 @@
 
 .dayNumber {
   font-size: 0.7rem;
-  color: #8B7355;
+  color: var(--nordic-text-muted);
   font-weight: bold;
 }
 
@@ -80,7 +89,7 @@
 
 .dayCoins {
   font-size: 0.6rem;
-  color: #5D4E37;
+  color: var(--nordic-text);
 }
 
 .checkmark {
@@ -89,7 +98,7 @@
   right: -4px;
   width: 16px;
   height: 16px;
-  background: #4CAF50;
+  background: var(--nordic-success);
   color: white;
   border-radius: 50%;
   font-size: 0.6rem;
@@ -108,11 +117,17 @@
 .giftBox {
   font-size: 4rem;
   cursor: pointer;
+  filter: drop-shadow(0 4px 12px rgba(124, 158, 178, 0.3));
+  transition: transform 0.2s;
+}
+
+.giftBox:hover {
+  transform: scale(1.1);
 }
 
 .giftPreview {
   font-size: 1.1rem;
-  color: #5D4E37;
+  color: var(--nordic-text);
   font-weight: 600;
 }
 
@@ -122,12 +137,12 @@
   align-items: center;
   gap: 8px;
   padding: 20px;
-  color: #81C784;
+  color: var(--nordic-success);
 }
 
 .claimedIcon {
   font-size: 3rem;
-  background: #E8F5E9;
+  background: rgba(127, 176, 105, 0.15);
   width: 80px;
   height: 80px;
   border-radius: 50%;
@@ -145,11 +160,12 @@
 
 .rewardIcon {
   font-size: 4rem;
+  filter: drop-shadow(0 4px 12px rgba(124, 158, 178, 0.3));
 }
 
 .rewardSection h3 {
   font-size: 1.3rem;
-  color: #5D4E37;
+  color: var(--nordic-text);
 }
 
 .rewards {
@@ -162,8 +178,11 @@
 
 .rewardItem {
   padding: 8px 16px;
-  background: linear-gradient(135deg, #FFE4B5, #FFCC80);
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
   border-radius: 20px;
   font-weight: 600;
-  color: #5D4E37;
+  color: var(--nordic-text);
 }

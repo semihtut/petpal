@@ -13,19 +13,23 @@ button.card {
 
 /* Variants */
 .default {
-  background: white;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  background: var(--glass-bg-strong);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
 }
 
 .elevated {
-  background: white;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  background: var(--nordic-soft-white);
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.1);
+  border: 1px solid var(--glass-border);
 }
 
 .glass {
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(12px);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
 }
 
 /* Padding */
