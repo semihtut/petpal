@@ -54,6 +54,13 @@ export const tr = {
   'feedback.bathed': 'Pırıl pırıl!',
   'feedback.slept': 'Tatlı rüyalar...',
 
+  // ==================== STAT FULL ALERTS ====================
+  'statFull.hunger': '{name} karnı çok tok! 🥰',
+  'statFull.thirst': '{name} şu an su istemiyor! 💧',
+  'statFull.happiness': '{name} zaten çok mutlu! 🌟',
+  'statFull.energy': '{name} enerjisi yerinde! ⚡',
+  'statFull.hygiene': '{name} pırıl pırıl temiz! ✨',
+
   // ==================== TASKS ====================
   'tasks.title': 'Görevler',
   'tasks.daily': 'Günlük Görevler',

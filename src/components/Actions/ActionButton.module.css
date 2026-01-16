@@ -48,3 +48,35 @@
   color: var(--nordic-text-muted);
   transition: color 0.2s ease;
 }
+
+/* Full state - when stat is at 100% */
+.button.full {
+  position: relative;
+  background: linear-gradient(135deg, rgba(127, 176, 105, 0.2), rgba(127, 176, 105, 0.1));
+  border-color: var(--nordic-success);
+}
+
+.button.full .icon {
+  opacity: 0.7;
+}
+
+.button.full .label {
+  color: var(--nordic-success);
+}
+
+.fullBadge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  width: 18px;
+  height: 18px;
+  background: var(--nordic-success);
+  color: white;
+  border-radius: 50%;
+  font-size: 10px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(127, 176, 105, 0.4);
+}

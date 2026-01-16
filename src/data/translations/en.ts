@@ -54,6 +54,13 @@ export const en = {
   'feedback.bathed': 'Squeaky clean!',
   'feedback.slept': 'Sweet dreams...',
 
+  // ==================== STAT FULL ALERTS ====================
+  'statFull.hunger': '{name} is totally full! 🥰',
+  'statFull.thirst': '{name} doesn\'t want water now! 💧',
+  'statFull.happiness': '{name} is already super happy! 🌟',
+  'statFull.energy': '{name} is full of energy! ⚡',
+  'statFull.hygiene': '{name} is squeaky clean! ✨',
+
   // ==================== TASKS ====================
   'tasks.title': 'Tasks',
   'tasks.daily': 'Daily Tasks',

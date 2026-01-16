@@ -254,3 +254,75 @@
 .tricksArea {
   margin-bottom: 8px;
 }
+
+/* Trick Animation Overlay */
+.trickOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(44, 62, 80, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+  gap: 24px;
+}
+
+.trickAnimation {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.trickPet {
+  font-size: 100px;
+  filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.2));
+}
+
+.trickEffect {
+  position: absolute;
+  font-size: 60px;
+  top: -30px;
+  right: -30px;
+}
+
+.trickInfo {
+  text-align: center;
+}
+
+.trickInfo .trickName {
+  font-size: 28px;
+  font-weight: 700;
+  color: white;
+  margin: 0 0 12px 0;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.trickReward {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  font-size: 20px;
+  font-weight: 600;
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.trickReward span {
+  padding: 8px 16px;
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  border-radius: 20px;
+}
+
+.sparkle {
+  position: absolute;
+  font-size: 24px;
+  pointer-events: none;
+}

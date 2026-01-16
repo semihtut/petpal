@@ -7,6 +7,7 @@ interface ActionButtonProps {
   action: ActionType;
   onClick: () => void;
   disabled?: boolean;
+  isFull?: boolean;
 }
 
 const actionConfig: Record<ActionType, { icon: string; color: string }> = {
@@ -18,13 +19,13 @@ const actionConfig: Record<ActionType, { icon: string; color: string }> = {
   sleep: { icon: '😴', color: '#A8C8E8' },
 };
 
-export function ActionButton({ action, onClick, disabled }: ActionButtonProps) {
+export function ActionButton({ action, onClick, disabled, isFull }: ActionButtonProps) {
   const { t } = useTranslation();
   const config = actionConfig[action];
 
   return (
     <motion.button
-      className={styles.button}
+      className={`${styles.button} ${isFull ? styles.full : ''}`}
       onClick={onClick}
       disabled={disabled}
       whileTap={{ scale: disabled ? 1 : 0.9 }}
@@ -35,6 +36,7 @@ export function ActionButton({ action, onClick, disabled }: ActionButtonProps) {
     >
       <span className={styles.icon}>{config.icon}</span>
       <span className={styles.label}>{t(`action.${action}`)}</span>
+      {isFull && <span className={styles.fullBadge}>✓</span>}
     </motion.button>
   );
 }

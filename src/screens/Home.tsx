@@ -1,5 +1,5 @@
 import { useState, useCallback, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useGameStore } from '../store/gameStore';
 import { useTranslation } from '../hooks/useTranslation';
 import { Pet } from '../components/Pet';
@@ -8,13 +8,23 @@ import { ActionPanel } from '../components/Actions';
 import { TricksPanel } from '../components/Tricks';
 import { DailyGiftModal } from '../components/DailyGift';
 import { Toast } from '../components/UI';
-import type { ActionType, RandomEvent } from '../utils/types';
+import { getTrickById } from '../data/tricks';
+import type { ActionType, RandomEvent, TrickType } from '../utils/types';
 import styles from './Home.module.css';
 
 interface HomeProps {
   onNavigate: (screen: string) => void;
   onPlayMiniGame: (action: ActionType) => void;
 }
+
+// Trick animation configurations
+const TRICK_ANIMATIONS: Record<TrickType, { emoji: string; animation: string }> = {
+  sit: { emoji: '🐕', animation: 'sit' },
+  paw: { emoji: '🐾', animation: 'paw' },
+  roll: { emoji: '🔄', animation: 'roll' },
+  bark: { emoji: '🗣️', animation: 'bark' },
+  spin: { emoji: '💫', animation: 'spin' },
+};
 
 export function Home({ onNavigate, onPlayMiniGame }: HomeProps) {
   const { t } = useTranslation();
@@ -35,6 +45,12 @@ export function Home({ onNavigate, onPlayMiniGame }: HomeProps) {
   } | null>(null);
 
   const [currentEvent, setCurrentEvent] = useState<RandomEvent | null>(null);
+
+  // Trick animation state
+  const [activeTrick, setActiveTrick] = useState<{
+    id: TrickType;
+    reward: { xp: number; coins: number };
+  } | null>(null);
 
   // Get greeting based on time
   const getGreeting = () => {
@@ -67,6 +83,23 @@ export function Home({ onNavigate, onPlayMiniGame }: HomeProps) {
     [t, triggerRandomEvent, recordEventWitnessed]
   );
 
+  const handleStatFullAlert = useCallback((message: string) => {
+    setToast({
+      message,
+      type: 'info',
+      icon: '💚',
+    });
+  }, []);
+
+  const handleTrickPerformed = useCallback((trickId: TrickType, reward: { xp: number; coins: number }) => {
+    setActiveTrick({ id: trickId, reward });
+
+    // Auto-dismiss after animation
+    setTimeout(() => {
+      setActiveTrick(null);
+    }, 2500);
+  }, []);
+
   const handleEventDismiss = () => {
     setCurrentEvent(null);
   };
@@ -88,6 +121,8 @@ export function Home({ onNavigate, onPlayMiniGame }: HomeProps) {
   }, []);
 
   if (!pet) return null;
+
+  const activeTrickData = activeTrick ? getTrickById(activeTrick.id) : null;
 
   return (
     <div className={styles.container}>
@@ -140,12 +175,13 @@ export function Home({ onNavigate, onPlayMiniGame }: HomeProps) {
         <ActionPanel
           onActionComplete={handleActionComplete}
           onPlayMiniGame={onPlayMiniGame}
+          onStatFullAlert={handleStatFullAlert}
         />
       </div>
 
       {/* Tricks */}
       <div className={styles.tricksArea}>
-        <TricksPanel />
+        <TricksPanel onTrickPerformed={handleTrickPerformed} />
       </div>
 
       {/* Bottom Navigation */}
@@ -186,6 +222,97 @@ export function Home({ onNavigate, onPlayMiniGame }: HomeProps) {
         isOpen={showDailyGift}
         onClose={() => setShowDailyGift(false)}
       />
+
+      {/* Trick Animation Overlay */}
+      <AnimatePresence>
+        {activeTrick && activeTrickData && (
+          <motion.div
+            className={styles.trickOverlay}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            <motion.div
+              className={styles.trickAnimation}
+              initial={{ scale: 0, rotate: -180 }}
+              animate={{
+                scale: [0, 1.2, 1],
+                rotate: activeTrick.id === 'spin' ? [0, 360, 720] : [0, -10, 10, 0],
+              }}
+              transition={{
+                duration: activeTrick.id === 'spin' ? 1.5 : 0.8,
+                ease: 'easeOut'
+              }}
+            >
+              {/* Pet doing trick */}
+              <motion.div
+                className={styles.trickPet}
+                animate={
+                  activeTrick.id === 'sit' ? { y: [0, 10, 10] } :
+                  activeTrick.id === 'paw' ? { rotate: [0, -20, 0, -20, 0] } :
+                  activeTrick.id === 'roll' ? { rotate: [0, 360] } :
+                  activeTrick.id === 'bark' ? { scale: [1, 1.1, 1, 1.1, 1] } :
+                  activeTrick.id === 'spin' ? { rotate: [0, 360, 720] } :
+                  {}
+                }
+                transition={{ duration: 1, ease: 'easeInOut' }}
+              >
+                🐕
+              </motion.div>
+
+              {/* Trick effect */}
+              <motion.div
+                className={styles.trickEffect}
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ opacity: [0, 1, 1, 0], scale: [0.5, 1.5, 1.5, 2] }}
+                transition={{ duration: 1.5, delay: 0.3 }}
+              >
+                {TRICK_ANIMATIONS[activeTrick.id].emoji}
+              </motion.div>
+            </motion.div>
+
+            {/* Trick name and reward */}
+            <motion.div
+              className={styles.trickInfo}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5 }}
+            >
+              <h3 className={styles.trickName}>{t(activeTrickData.nameKey)}</h3>
+              <div className={styles.trickReward}>
+                <span>+{activeTrick.reward.coins} 🪙</span>
+                <span>+{activeTrick.reward.xp} XP</span>
+              </div>
+            </motion.div>
+
+            {/* Sparkles */}
+            {[...Array(8)].map((_, i) => (
+              <motion.span
+                key={i}
+                className={styles.sparkle}
+                initial={{
+                  opacity: 0,
+                  x: 0,
+                  y: 0,
+                  scale: 0
+                }}
+                animate={{
+                  opacity: [0, 1, 0],
+                  x: Math.cos(i * Math.PI / 4) * 100,
+                  y: Math.sin(i * Math.PI / 4) * 100,
+                  scale: [0, 1, 0]
+                }}
+                transition={{
+                  duration: 1,
+                  delay: 0.2 + i * 0.05
+                }}
+              >
+                ✨
+              </motion.span>
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Random Event Modal */}
       {currentEvent && (
