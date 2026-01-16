@@ -1,5 +1,6 @@
 import { useState, useCallback, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { ClipboardList, ShoppingBag, Shirt, Trophy, Settings, Coins, Star, Gift, Dog, Baby, Heart } from 'lucide-react';
 import { useGameStore } from '../store/gameStore';
 import { useTranslation } from '../hooks/useTranslation';
 import { Pet } from '../components/Pet';
@@ -124,6 +125,9 @@ export function Home({ onNavigate, onPlayMiniGame }: HomeProps) {
 
   const activeTrickData = activeTrick ? getTrickById(activeTrick.id) : null;
 
+  // Age icon
+  const AgeIcon = ageStage === 'puppy' ? Baby : ageStage === 'adult' ? Dog : Heart;
+
   return (
     <div className={styles.container}>
       {/* Header */}
@@ -138,15 +142,15 @@ export function Home({ onNavigate, onPlayMiniGame }: HomeProps) {
               className={styles.giftButton}
               onClick={() => setShowDailyGift(true)}
             >
-              🎁
+              <Gift size={22} color="white" />
             </button>
           )}
           <div className={styles.coinBadge}>
-            <span>🪙</span>
+            <Coins size={18} />
             <span>{coins}</span>
           </div>
           <div className={styles.levelBadge}>
-            <span>{t('home.level')}</span>
+            <Star size={18} />
             <span>{level}</span>
           </div>
         </div>
@@ -154,9 +158,7 @@ export function Home({ onNavigate, onPlayMiniGame }: HomeProps) {
 
       {/* Age badge */}
       <div className={styles.ageBadge}>
-        {ageStage === 'puppy' && '🐶'}
-        {ageStage === 'adult' && '🐕'}
-        {ageStage === 'senior' && '🦮'}
+        <AgeIcon size={16} />
         <span>{t(`petAge.${ageStage}`)}</span>
       </div>
 
@@ -187,24 +189,24 @@ export function Home({ onNavigate, onPlayMiniGame }: HomeProps) {
       {/* Bottom Navigation */}
       <nav className={styles.bottomNav}>
         <button className={styles.navButton} onClick={() => onNavigate('tasks')}>
-          <span>📋</span>
-          <span>{t('tasks.title')}</span>
+          <ClipboardList className={styles.navIcon} />
+          <span className={styles.navLabel}>{t('nav.tasks')}</span>
         </button>
         <button className={styles.navButton} onClick={() => onNavigate('shop')}>
-          <span>🛍️</span>
-          <span>{t('shop.title')}</span>
+          <ShoppingBag className={styles.navIcon} />
+          <span className={styles.navLabel}>{t('nav.shop')}</span>
         </button>
         <button className={styles.navButton} onClick={() => onNavigate('wardrobe')}>
-          <span>👕</span>
-          <span>{t('wardrobe.title')}</span>
+          <Shirt className={styles.navIcon} />
+          <span className={styles.navLabel}>{t('nav.wardrobe')}</span>
         </button>
         <button className={styles.navButton} onClick={() => onNavigate('achievements')}>
-          <span>🏆</span>
-          <span>{t('achievements.title')}</span>
+          <Trophy className={styles.navIcon} />
+          <span className={styles.navLabel}>{t('nav.achievements')}</span>
         </button>
         <button className={styles.navButton} onClick={() => onNavigate('settings')}>
-          <span>⚙️</span>
-          <span>{t('settings.title')}</span>
+          <Settings className={styles.navIcon} />
+          <span className={styles.navLabel}>{t('nav.settings')}</span>
         </button>
       </nav>
 

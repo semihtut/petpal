@@ -1,10 +1,12 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import tailwindcss from '@tailwindcss/vite'
 import { VitePWA } from 'vite-plugin-pwa'
 
 export default defineConfig({
   plugins: [
     react(),
+    tailwindcss(),
     VitePWA({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'mask-icon.svg'],
@@ -12,8 +14,8 @@ export default defineConfig({
         name: 'PetPal - Mobil Pet Bakım Oyunu',
         short_name: 'PetPal',
         description: 'Sevimli köpeğine bak, günlük görevleri tamamla, ödüller kazan!',
-        theme_color: '#FFF8E7',
-        background_color: '#FFF8E7',
+        theme_color: '#F8FAFC',
+        background_color: '#F8FAFC',
         display: 'standalone',
         orientation: 'portrait',
         scope: '/',

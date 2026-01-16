@@ -1,69 +1,108 @@
+/* ===== CLAYMORPHISM MODAL ===== */
+
 .backdrop {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(44, 62, 80, 0.4);
+  background: rgba(30, 41, 59, 0.5);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
 }
 
 .modal {
   position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: var(--glass-bg-strong);
-  backdrop-filter: var(--glass-blur);
-  -webkit-backdrop-filter: var(--glass-blur);
-  border: 1px solid var(--glass-border);
-  border-radius: 28px;
-  padding: 24px;
-  min-width: 300px;
-  max-width: 90vw;
-  max-height: 85vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  width: calc(100vw - 40px);
+  max-width: 320px;
+  height: fit-content;
+  max-height: calc(100vh - 100px);
+  max-height: calc(100dvh - 100px);
+  background: var(--color-bg-card, #fff);
+  border: 3px solid var(--color-clay-border, rgba(255, 255, 255, 0.5));
+  border-radius: var(--radius-xl, 20px);
+  padding: 16px;
   overflow-y: auto;
-  box-shadow: 0 20px 60px rgba(31, 38, 135, 0.15);
+  box-shadow: var(--shadow-clay-lg, 8px 8px 16px rgba(0,0,0,0.1));
   z-index: 101;
+}
+
+/* Mobil için daha küçük modal */
+@media (max-height: 700px) {
+  .modal {
+    max-height: calc(100vh - 60px);
+    max-height: calc(100dvh - 60px);
+    padding: 12px;
+    max-width: 300px;
+  }
+}
+
+@media (max-height: 600px) {
+  .modal {
+    max-height: calc(100vh - 40px);
+    max-height: calc(100dvh - 40px);
+    padding: 10px;
+    max-width: 280px;
+  }
+}
+
+@media (max-width: 360px) {
+  .modal {
+    width: calc(100vw - 32px);
+    padding: 12px;
+  }
 }
 
 .header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
 
 .title {
   margin: 0;
-  font-size: 20px;
+  font-family: var(--font-display, 'Fredoka', sans-serif);
+  font-size: 18px;
   font-weight: 700;
-  color: var(--nordic-text);
+  color: var(--color-text, #1E293B);
 }
 
 .closeButton {
-  width: 36px;
-  height: 36px;
-  border: none;
-  border-radius: 12px;
-  background: var(--glass-bg);
-  color: var(--nordic-text-muted);
-  font-size: 16px;
+  width: 32px;
+  height: 32px;
+  border: 2px solid var(--color-clay-border, rgba(255, 255, 255, 0.5));
+  border-radius: var(--radius-sm, 12px);
+  background: var(--color-bg-soft, #F1F5F9);
+  color: var(--color-text-muted, #64748B);
+  font-size: 14px;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.2s ease;
-  border: 1px solid var(--glass-border);
+  transition: var(--transition-bounce, 200ms ease);
+  box-shadow: var(--shadow-clay-sm, 4px 4px 8px rgba(0,0,0,0.1));
 }
 
 .closeButton:hover {
-  background: rgba(124, 158, 178, 0.15);
-  color: var(--nordic-text);
+  transform: scale(1.05);
+}
+
+.closeButton:active {
+  transform: scale(0.95);
+  box-shadow: var(--shadow-clay-pressed, inset 2px 2px 4px rgba(0,0,0,0.1));
 }
 
 .content {
-  color: var(--nordic-text-muted);
+  color: var(--color-text-muted, #64748B);
 }

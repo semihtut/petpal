@@ -1,10 +1,16 @@
 .container {
   display: flex;
   flex-direction: column;
+  align-items: center;
   min-height: 100vh;
   min-height: 100dvh;
-  padding: 16px;
-  background: linear-gradient(180deg, #FFF8E7 0%, #FFE4D6 100%);
+  padding: 12px;
+  background: var(--color-bg, linear-gradient(180deg, #FFF8E7 0%, #FFE4D6 100%));
+}
+
+.container > * {
+  width: 100%;
+  max-width: 396px;
 }
 
 .header {

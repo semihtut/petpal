@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { Utensils, Droplets, Gamepad2, Footprints, Bath, Moon, Check } from 'lucide-react';
 import type { ActionType } from '../../utils/types';
 import { useTranslation } from '../../hooks/useTranslation';
 import styles from './ActionButton.module.css';
@@ -10,33 +11,31 @@ interface ActionButtonProps {
   isFull?: boolean;
 }
 
-const actionConfig: Record<ActionType, { icon: string; color: string }> = {
-  feed: { icon: '🍖', color: '#FF9B85' },
-  water: { icon: '💧', color: '#7BC8E8' },
-  play: { icon: '🎾', color: '#FFD699' },
-  walk: { icon: '🚶', color: '#98D8C8' },
-  bath: { icon: '🛁', color: '#B8A9C8' },
-  sleep: { icon: '😴', color: '#A8C8E8' },
+const actionConfig: Record<ActionType, { Icon: typeof Utensils }> = {
+  feed: { Icon: Utensils },
+  water: { Icon: Droplets },
+  play: { Icon: Gamepad2 },
+  walk: { Icon: Footprints },
+  bath: { Icon: Bath },
+  sleep: { Icon: Moon },
 };
 
 export function ActionButton({ action, onClick, disabled, isFull }: ActionButtonProps) {
   const { t } = useTranslation();
-  const config = actionConfig[action];
+  const { Icon } = actionConfig[action];
 
   return (
     <motion.button
-      className={`${styles.button} ${isFull ? styles.full : ''}`}
+      className={`${styles.button} ${styles[action]} ${isFull ? styles.full : ''}`}
       onClick={onClick}
       disabled={disabled}
-      whileTap={{ scale: disabled ? 1 : 0.9 }}
-      whileHover={{ scale: disabled ? 1 : 1.05 }}
-      style={{
-        '--action-color': config.color,
-      } as React.CSSProperties}
+      whileTap={{ scale: disabled ? 1 : 0.95 }}
     >
-      <span className={styles.icon}>{config.icon}</span>
+      <div className={styles.icon}>
+        <Icon />
+      </div>
       <span className={styles.label}>{t(`action.${action}`)}</span>
-      {isFull && <span className={styles.fullBadge}>✓</span>}
+      {isFull && <span className={styles.fullBadge}><Check size={12} /></span>}
     </motion.button>
   );
 }
