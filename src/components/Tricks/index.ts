@@ -1,0 +1,1 @@
+export { TricksPanel } from './TricksPanel';

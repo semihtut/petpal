@@ -1,10 +1,12 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useGameStore } from '../store/gameStore';
 import { useTranslation } from '../hooks/useTranslation';
 import { Pet } from '../components/Pet';
 import { StatsPanel } from '../components/Stats';
 import { ActionPanel } from '../components/Actions';
+import { TricksPanel } from '../components/Tricks';
+import { DailyGiftModal } from '../components/DailyGift';
 import { Toast } from '../components/UI';
 import type { ActionType, RandomEvent } from '../utils/types';
 import styles from './Home.module.css';
@@ -21,7 +23,11 @@ export function Home({ onNavigate, onPlayMiniGame }: HomeProps) {
   const level = useGameStore((state) => state.level);
   const triggerRandomEvent = useGameStore((state) => state.triggerRandomEvent);
   const recordEventWitnessed = useGameStore((state) => state.recordEventWitnessed);
+  const canClaimDailyGift = useGameStore((state) => state.canClaimDailyGift);
+  const checkUnlockTricks = useGameStore((state) => state.checkUnlockTricks);
+  const ageStage = useGameStore((state) => state.ageStage);
 
+  const [showDailyGift, setShowDailyGift] = useState(false);
   const [toast, setToast] = useState<{
     message: string;
     type: 'success' | 'info' | 'reward';
@@ -65,6 +71,22 @@ export function Home({ onNavigate, onPlayMiniGame }: HomeProps) {
     setCurrentEvent(null);
   };
 
+  // Check for daily gift on mount
+  useEffect(() => {
+    if (canClaimDailyGift()) {
+      setShowDailyGift(true);
+    }
+    // Check for new tricks
+    const newTricks = checkUnlockTricks();
+    if (newTricks.length > 0) {
+      setToast({
+        message: t('tricks.unlocked'),
+        type: 'reward',
+        icon: '🎉',
+      });
+    }
+  }, []);
+
   if (!pet) return null;
 
   return (
@@ -76,6 +98,14 @@ export function Home({ onNavigate, onPlayMiniGame }: HomeProps) {
           <span className={styles.petName}>{pet.customName}</span>
         </div>
         <div className={styles.headerStats}>
+          {canClaimDailyGift() && (
+            <button
+              className={styles.giftButton}
+              onClick={() => setShowDailyGift(true)}
+            >
+              🎁
+            </button>
+          )}
           <div className={styles.coinBadge}>
             <span>🪙</span>
             <span>{coins}</span>
@@ -86,6 +116,14 @@ export function Home({ onNavigate, onPlayMiniGame }: HomeProps) {
           </div>
         </div>
       </header>
+
+      {/* Age badge */}
+      <div className={styles.ageBadge}>
+        {ageStage === 'puppy' && '🐶'}
+        {ageStage === 'adult' && '🐕'}
+        {ageStage === 'senior' && '🦮'}
+        <span>{t(`petAge.${ageStage}`)}</span>
+      </div>
 
       {/* Pet Area */}
       <div className={styles.petArea}>
@@ -103,6 +141,11 @@ export function Home({ onNavigate, onPlayMiniGame }: HomeProps) {
           onActionComplete={handleActionComplete}
           onPlayMiniGame={onPlayMiniGame}
         />
+      </div>
+
+      {/* Tricks */}
+      <div className={styles.tricksArea}>
+        <TricksPanel />
       </div>
 
       {/* Bottom Navigation */}
@@ -136,6 +179,12 @@ export function Home({ onNavigate, onPlayMiniGame }: HomeProps) {
         icon={toast?.icon}
         isVisible={!!toast}
         onHide={() => setToast(null)}
+      />
+
+      {/* Daily Gift Modal */}
+      <DailyGiftModal
+        isOpen={showDailyGift}
+        onClose={() => setShowDailyGift(false)}
       />
 
       {/* Random Event Modal */}

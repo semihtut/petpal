@@ -278,4 +278,46 @@ export const en = {
   'common.days': 'days',
   'common.hour': 'hour',
   'common.hours': 'hours',
+
+  // ==================== DAILY GIFT ====================
+  'dailyGift.title': 'Daily Gift',
+  'dailyGift.open': 'Open!',
+  'dailyGift.claimed': 'Claimed today',
+  'dailyGift.streak': 'Gift Streak',
+  'dailyGift.day': 'Day {day}',
+  'dailyGift.rare': 'Rare Gift!',
+  'dailyGift.congrats': 'Congratulations!',
+
+  // ==================== TRICKS ====================
+  'tricks.title': 'Tricks',
+  'tricks.locked': 'Locked',
+  'tricks.unlocked': 'Unlocked!',
+  'tricks.perform': 'Do it!',
+  'tricks.cooldown': 'Wait...',
+  'tricks.requireBond': 'Bond {bond} required',
+
+  'tricks.sit': 'Sit',
+  'tricks.sitDesc': 'Sit still',
+  'tricks.paw': 'Give Paw',
+  'tricks.pawDesc': 'Give a loving paw',
+  'tricks.roll': 'Roll Over',
+  'tricks.rollDesc': 'Roll on the ground',
+  'tricks.bark': 'Bark',
+  'tricks.barkDesc': 'Happy barking',
+  'tricks.spin': 'Spin',
+  'tricks.spinDesc': 'Spin around',
+
+  // ==================== SEASONAL EVENTS ====================
+  'events.active': 'Event!',
+  'events.newyear': 'New Year Festival',
+  'events.valentine': 'Valentine\'s Day',
+  'events.spring': 'Spring Festival',
+  'events.summer': 'Summer Fun',
+  'events.halloween': 'Halloween',
+
+  // ==================== PET AGE ====================
+  'petAge.puppy': 'Puppy',
+  'petAge.adult': 'Adult',
+  'petAge.senior': 'Senior',
+  'petAge.birthday': '{name} grew up!',
 };

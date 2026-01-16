@@ -278,4 +278,46 @@ export const tr = {
   'common.days': 'gün',
   'common.hour': 'saat',
   'common.hours': 'saat',
+
+  // ==================== DAILY GIFT ====================
+  'dailyGift.title': 'Günlük Hediye',
+  'dailyGift.open': 'Aç!',
+  'dailyGift.claimed': 'Bugün alındı',
+  'dailyGift.streak': 'Hediye Serisi',
+  'dailyGift.day': 'Gün {day}',
+  'dailyGift.rare': 'Nadir Hediye!',
+  'dailyGift.congrats': 'Tebrikler!',
+
+  // ==================== TRICKS ====================
+  'tricks.title': 'Numaralar',
+  'tricks.locked': 'Kilitli',
+  'tricks.unlocked': 'Açıldı!',
+  'tricks.perform': 'Yap!',
+  'tricks.cooldown': 'Bekle...',
+  'tricks.requireBond': 'Bağlanma {bond} gerekli',
+
+  'tricks.sit': 'Otur',
+  'tricks.sitDesc': 'Uslu uslu otur',
+  'tricks.paw': 'Pati Ver',
+  'tricks.pawDesc': 'Sevgiyle pati ver',
+  'tricks.roll': 'Yuvarlan',
+  'tricks.rollDesc': 'Yerde yuvarlan',
+  'tricks.bark': 'Havla',
+  'tricks.barkDesc': 'Mutlu havlama',
+  'tricks.spin': 'Dön',
+  'tricks.spinDesc': 'Kendi etrafında dön',
+
+  // ==================== SEASONAL EVENTS ====================
+  'events.active': 'Etkinlik!',
+  'events.newyear': 'Yeni Yıl Festivali',
+  'events.valentine': 'Sevgililer Günü',
+  'events.spring': 'Bahar Şenliği',
+  'events.summer': 'Yaz Eğlencesi',
+  'events.halloween': 'Cadılar Bayramı',
+
+  // ==================== PET AGE ====================
+  'petAge.puppy': 'Yavru',
+  'petAge.adult': 'Yetişkin',
+  'petAge.senior': 'Yaşlı',
+  'petAge.birthday': '{name} büyüdü!',
 };

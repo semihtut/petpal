@@ -29,6 +29,15 @@ export type ActionType =
   | 'bath'
   | 'sleep';
 
+export type TrickType =
+  | 'sit'
+  | 'paw'
+  | 'roll'
+  | 'bark'
+  | 'spin';
+
+export type PetAgeStage = 'puppy' | 'adult' | 'senior';
+
 export type MiniGameType =
   | 'ballCatch'
   | 'bubblePop'
@@ -86,6 +95,34 @@ export interface Pet {
   breedId: string;
   customName: string;
   createdAt: number;
+}
+
+export interface Trick {
+  id: TrickType;
+  nameKey: string;
+  descriptionKey: string;
+  icon: string;
+  requiredBond: number;
+  xpReward: number;
+  coinReward: number;
+}
+
+export interface DailyGift {
+  day: number;
+  coins: number;
+  xp: number;
+  item?: string;
+  isRare: boolean;
+}
+
+export interface SeasonalEvent {
+  id: string;
+  nameKey: string;
+  startDate: string; // MM-DD format
+  endDate: string;
+  theme: string;
+  specialItems: string[];
+  specialTasks: string[];
 }
 
 export interface Task {
@@ -243,6 +280,17 @@ export interface GameState {
   // Random events
   lastRandomEvent: number;
   seenEvents: string[];
+
+  // Daily gift box
+  lastDailyGiftDate: string;
+  dailyGiftStreak: number;
+
+  // Tricks
+  unlockedTricks: TrickType[];
+  lastTrickPerformed: number;
+
+  // Pet age
+  ageStage: PetAgeStage;
 }
 
 // ==================== ACTION PAYLOADS ====================

@@ -178,3 +178,42 @@
 .eventButton:active {
   transform: scale(0.98);
 }
+
+/* Gift Button */
+.giftButton {
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #FFE4B5, #FFCC80);
+  font-size: 24px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(255, 155, 133, 0.3);
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+/* Age Badge */
+.ageBadge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background: white;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #8B7355;
+  width: fit-content;
+  margin: 0 auto;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Tricks Area */
+.tricksArea {
+  margin-bottom: 8px;
+}

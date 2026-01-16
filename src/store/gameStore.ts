@@ -10,6 +10,9 @@ import type {
   Settings,
   EquippedItems,
   RandomEvent,
+  TrickType,
+  PetAgeStage,
+  DailyGift,
 } from '../utils/types';
 import {
   GAME_VERSION,
@@ -34,6 +37,8 @@ import { generateDailyTasks, generateWeeklyTask } from '../data/tasks';
 import { getDogById } from '../data/dogs';
 import { achievements } from '../data/achievements';
 import { getRandomEvent } from '../data/randomEvents';
+import { getDailyGift } from '../data/dailyGifts';
+import { tricks, getAvailableTricks } from '../data/tricks';
 
 const getInitialState = (): GameState => {
   const today = new Date().toISOString().split('T')[0];
@@ -89,6 +94,11 @@ const getInitialState = (): GameState => {
     },
     lastRandomEvent: 0,
     seenEvents: [],
+    lastDailyGiftDate: '',
+    dailyGiftStreak: 0,
+    unlockedTricks: ['sit'],
+    lastTrickPerformed: 0,
+    ageStage: 'puppy',
   };
 };
 
@@ -171,6 +181,17 @@ interface GameActions {
 
   // Statistics
   incrementStatistic: (key: keyof GameState['statistics'], amount?: number) => void;
+
+  // Daily Gift
+  canClaimDailyGift: () => boolean;
+  claimDailyGift: () => DailyGift | null;
+
+  // Tricks
+  performTrick: (trickId: TrickType) => { xp: number; coins: number } | null;
+  checkUnlockTricks: () => TrickType[];
+
+  // Pet Age
+  checkPetAge: () => PetAgeStage | null;
 }
 
 export const useGameStore = create<GameState & GameActions>()(
@@ -737,6 +758,126 @@ export const useGameStore = create<GameState & GameActions>()(
             [key]: (state.statistics[key] as number) + amount,
           },
         });
+      },
+
+      // Daily Gift
+      canClaimDailyGift: () => {
+        const state = get();
+        const today = new Date().toISOString().split('T')[0];
+        return state.lastDailyGiftDate !== today;
+      },
+
+      claimDailyGift: () => {
+        const state = get();
+        const today = new Date().toISOString().split('T')[0];
+
+        if (state.lastDailyGiftDate === today) return null;
+
+        // Check if streak continues
+        const yesterday = new Date();
+        yesterday.setDate(yesterday.getDate() - 1);
+        const yesterdayStr = yesterday.toISOString().split('T')[0];
+
+        let newStreak = state.dailyGiftStreak;
+        if (state.lastDailyGiftDate === yesterdayStr) {
+          newStreak += 1;
+        } else {
+          newStreak = 1;
+        }
+
+        const gift = getDailyGift(newStreak);
+
+        // Apply rewards
+        get().addCoins(gift.coins);
+        get().addXp(gift.xp);
+
+        // Add item if present
+        if (gift.item && !state.inventory.ownedItems.includes(gift.item)) {
+          set({
+            inventory: {
+              ...state.inventory,
+              ownedItems: [...state.inventory.ownedItems, gift.item],
+            },
+          });
+        }
+
+        set({
+          lastDailyGiftDate: today,
+          dailyGiftStreak: newStreak,
+        });
+
+        return gift;
+      },
+
+      // Tricks
+      performTrick: (trickId: TrickType) => {
+        const state = get();
+        const now = Date.now();
+
+        // Cooldown check (30 seconds between tricks)
+        if (now - state.lastTrickPerformed < 30 * 1000) {
+          return null;
+        }
+
+        // Check if trick is unlocked
+        if (!state.unlockedTricks.includes(trickId)) {
+          return null;
+        }
+
+        const trick = tricks.find((t) => t.id === trickId);
+        if (!trick) return null;
+
+        // Apply rewards
+        get().addXp(trick.xpReward);
+        get().addCoins(trick.coinReward);
+        get().addBond(1);
+
+        set({ lastTrickPerformed: now });
+
+        return { xp: trick.xpReward, coins: trick.coinReward };
+      },
+
+      checkUnlockTricks: () => {
+        const state = get();
+        const available = getAvailableTricks(state.bond);
+        const newlyUnlocked: TrickType[] = [];
+
+        available.forEach((trick) => {
+          if (!state.unlockedTricks.includes(trick.id)) {
+            newlyUnlocked.push(trick.id);
+          }
+        });
+
+        if (newlyUnlocked.length > 0) {
+          set({
+            unlockedTricks: [...state.unlockedTricks, ...newlyUnlocked],
+          });
+        }
+
+        return newlyUnlocked;
+      },
+
+      // Pet Age
+      checkPetAge: () => {
+        const state = get();
+        if (!state.pet) return null;
+
+        const ageInDays = Math.floor((Date.now() - state.pet.createdAt) / (1000 * 60 * 60 * 24));
+
+        let newStage: PetAgeStage = 'puppy';
+        if (ageInDays >= 30) {
+          newStage = 'adult';
+        }
+        if (ageInDays >= 90) {
+          newStage = 'senior';
+        }
+
+        if (newStage !== state.ageStage) {
+          set({ ageStage: newStage });
+          return newStage;
+        }
+
+        return null;
       },
     }),
     {

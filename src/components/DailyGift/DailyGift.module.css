@@ -1,0 +1,169 @@
+.container {
+  text-align: center;
+  padding: 8px;
+}
+
+.title {
+  font-size: 1.5rem;
+  color: #5D4E37;
+  margin-bottom: 16px;
+}
+
+.streakDisplay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+  padding: 12px;
+  background: linear-gradient(135deg, #FFE4B5, #FFF8E7);
+  border-radius: 12px;
+}
+
+.streakLabel {
+  font-size: 0.9rem;
+  color: #8B7355;
+}
+
+.streakValue {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #FF9B85;
+}
+
+.calendar {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+  margin-bottom: 20px;
+}
+
+.calendarDay {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8px 4px;
+  background: #FFF;
+  border-radius: 8px;
+  border: 2px solid #E8D5B7;
+  transition: all 0.2s;
+}
+
+.calendarDay.past {
+  background: #E8F5E9;
+  border-color: #81C784;
+  opacity: 0.7;
+}
+
+.calendarDay.current {
+  background: linear-gradient(135deg, #FFE4B5, #FFCC80);
+  border-color: #FF9B85;
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(255, 155, 133, 0.3);
+}
+
+.calendarDay.future {
+  opacity: 0.5;
+}
+
+.dayNumber {
+  font-size: 0.7rem;
+  color: #8B7355;
+  font-weight: bold;
+}
+
+.dayReward {
+  font-size: 1.2rem;
+  margin: 4px 0;
+}
+
+.dayCoins {
+  font-size: 0.6rem;
+  color: #5D4E37;
+}
+
+.checkmark {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  width: 16px;
+  height: 16px;
+  background: #4CAF50;
+  color: white;
+  border-radius: 50%;
+  font-size: 0.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.claimSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.giftBox {
+  font-size: 4rem;
+  cursor: pointer;
+}
+
+.giftPreview {
+  font-size: 1.1rem;
+  color: #5D4E37;
+  font-weight: 600;
+}
+
+.claimed {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 20px;
+  color: #81C784;
+}
+
+.claimedIcon {
+  font-size: 3rem;
+  background: #E8F5E9;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rewardSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.rewardIcon {
+  font-size: 4rem;
+}
+
+.rewardSection h3 {
+  font-size: 1.3rem;
+  color: #5D4E37;
+}
+
+.rewards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.rewardItem {
+  padding: 8px 16px;
+  background: linear-gradient(135deg, #FFE4B5, #FFCC80);
+  border-radius: 20px;
+  font-weight: 600;
+  color: #5D4E37;
+}

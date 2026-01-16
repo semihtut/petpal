@@ -309,3 +309,114 @@
   font-weight: 600;
   color: #5D5D5D;
 }
+
+/* Memory Match */
+.memoryGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  padding: 16px;
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+.memoryCard {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  background: linear-gradient(135deg, #E8D5B7, #D4C4A8);
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.memoryCard.flipped {
+  background: linear-gradient(135deg, #FFF8E7, #FFE4B5);
+}
+
+.memoryCard.matched {
+  background: linear-gradient(135deg, #98D8C8, #7BC4B4);
+  cursor: default;
+}
+
+/* Frisbee Chase */
+.frisbee {
+  z-index: 10;
+}
+
+.chaseDog {
+  position: absolute;
+  bottom: 20%;
+  font-size: 48px;
+  transform: translateX(-50%);
+}
+
+.controls {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 40px;
+}
+
+.controlBtn {
+  width: 64px;
+  height: 64px;
+  font-size: 28px;
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.controlBtn:active {
+  transform: scale(0.95);
+}
+
+/* Agility Run */
+.trackBackground {
+  background: linear-gradient(180deg, #87CEEB 0%, #90EE90 60%, #8B4513 100%);
+}
+
+.agilityDog {
+  position: absolute;
+  left: 15%;
+  bottom: 30%;
+  font-size: 48px;
+  z-index: 10;
+}
+
+.obstacle {
+  position: absolute;
+  bottom: 30%;
+  font-size: 40px;
+}
+
+.agilityControls {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 20px;
+}
+
+.agilityBtn {
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: bold;
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.agilityBtn:active {
+  transform: scale(0.95);
+}
