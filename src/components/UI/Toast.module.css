@@ -1,0 +1,41 @@
+.toast {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 12px 24px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  font-size: 15px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  z-index: 200;
+  max-width: 90vw;
+}
+
+.success {
+  background: linear-gradient(135deg, #98D8C8 0%, #7BC8B8 100%);
+  color: white;
+}
+
+.info {
+  background: white;
+  color: #5D5D5D;
+}
+
+.reward {
+  background: linear-gradient(135deg, #FFE4B5 0%, #FFD699 100%);
+  color: #5D5D5D;
+}
+
+.icon {
+  font-size: 20px;
+}
+
+.message {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

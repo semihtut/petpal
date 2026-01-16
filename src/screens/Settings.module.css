@@ -1,0 +1,206 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: 16px;
+  background: linear-gradient(180deg, #FFF8E7 0%, #FFE4D6 100%);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.backButton {
+  padding: 8px 16px;
+  border: none;
+  background: white;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #5D5D5D;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #3D3D3D;
+  margin: 0;
+}
+
+.content {
+  flex: 1;
+  padding-bottom: 24px;
+}
+
+.infoCard {
+  padding: 20px;
+  margin-bottom: 24px;
+}
+
+.infoRow {
+  display: flex;
+  justify-content: space-around;
+}
+
+.infoItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.infoIcon {
+  font-size: 28px;
+}
+
+.infoItem > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.infoLabel {
+  font-size: 12px;
+  color: #8D8D8D;
+}
+
+.infoValue {
+  font-size: 16px;
+  font-weight: 700;
+  color: #3D3D3D;
+}
+
+.section {
+  margin-bottom: 24px;
+}
+
+.sectionTitle {
+  font-size: 12px;
+  font-weight: 700;
+  color: #8D8D8D;
+  margin: 0 0 12px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.settingCard {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  cursor: pointer;
+  margin-bottom: 8px;
+}
+
+.settingCard.danger {
+  border: 1px solid rgba(255, 123, 107, 0.3);
+}
+
+.settingCard.danger .settingLabel {
+  color: #FF7B6B;
+}
+
+.settingContent {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.settingIcon {
+  font-size: 20px;
+}
+
+.settingLabel {
+  font-size: 15px;
+  font-weight: 600;
+  color: #3D3D3D;
+}
+
+.languageToggle {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #BDBDBD;
+}
+
+.activeLanguage {
+  color: #FF9B85;
+}
+
+.languageDivider {
+  color: #DEDEDE;
+}
+
+.toggle {
+  width: 50px;
+  height: 28px;
+  background: #E0E0E0;
+  border-radius: 14px;
+  position: relative;
+  transition: background 0.2s ease;
+}
+
+.toggle.on {
+  background: #98D8C8;
+}
+
+.toggleThumb {
+  width: 24px;
+  height: 24px;
+  background: white;
+  border-radius: 50%;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  transition: transform 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.toggle.on .toggleThumb {
+  transform: translateX(22px);
+}
+
+.aboutCard {
+  padding: 24px;
+}
+
+.aboutContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.appName {
+  font-size: 20px;
+  font-weight: 700;
+  color: #3D3D3D;
+}
+
+.version {
+  font-size: 14px;
+  color: #8D8D8D;
+}
+
+.confirmContent {
+  text-align: center;
+}
+
+.confirmText {
+  font-size: 15px;
+  color: #5D5D5D;
+  margin: 0 0 24px 0;
+  line-height: 1.5;
+}
+
+.confirmButtons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}

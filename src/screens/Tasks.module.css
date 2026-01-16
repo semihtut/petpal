@@ -1,0 +1,168 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: 16px;
+  background: linear-gradient(180deg, #FFF8E7 0%, #FFE4D6 100%);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.backButton {
+  padding: 8px 16px;
+  border: none;
+  background: white;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #5D5D5D;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #3D3D3D;
+  margin: 0;
+}
+
+.section {
+  margin-bottom: 24px;
+}
+
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.sectionTitle {
+  font-size: 16px;
+  font-weight: 700;
+  color: #3D3D3D;
+  margin: 0;
+}
+
+.timer {
+  font-size: 12px;
+  color: #8D8D8D;
+}
+
+.taskList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.taskCard {
+  padding: 16px;
+}
+
+.taskCard.claimed {
+  opacity: 0.6;
+}
+
+.taskContent {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.taskInfo {
+  flex: 1;
+}
+
+.taskDescription {
+  font-size: 14px;
+  font-weight: 600;
+  color: #3D3D3D;
+  margin: 0 0 8px 0;
+}
+
+.taskProgress {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.taskCount {
+  font-size: 12px;
+  font-weight: 600;
+  color: #8D8D8D;
+  white-space: nowrap;
+}
+
+.taskReward {
+  display: flex;
+  align-items: center;
+}
+
+.rewardPreview {
+  font-size: 14px;
+  font-weight: 600;
+  color: #FFB085;
+}
+
+.claimedBadge {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #98D8C8;
+  color: white;
+  border-radius: 50%;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+/* Weekly Task */
+.weeklyCard {
+  padding: 20px;
+}
+
+.weeklyCard.claimed {
+  opacity: 0.6;
+}
+
+.weeklyContent {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.weeklyIcon {
+  font-size: 40px;
+}
+
+.weeklyInfo {
+  flex: 1;
+}
+
+.weeklyDescription {
+  font-size: 16px;
+  font-weight: 600;
+  color: #3D3D3D;
+  margin: 0 0 12px 0;
+}
+
+.weeklyReward {
+  margin-top: 12px;
+}
+
+.weeklyRewardPreview {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #FFB085;
+}

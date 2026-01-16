@@ -1,0 +1,142 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: 24px;
+  background: linear-gradient(180deg, #FFF8E7 0%, #FFE4D6 100%);
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #3D3D3D;
+  margin: 0 0 8px 0;
+}
+
+.subtitle {
+  font-size: 16px;
+  color: #8D8D8D;
+  margin: 0;
+}
+
+.dogsGrid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.dogCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 80px;
+  height: 90px;
+  padding: 12px;
+  border: 3px solid transparent;
+  border-radius: 20px;
+  background: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.dogCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+.dogCard.selected {
+  border-color: #FF9B85;
+  background: linear-gradient(135deg, #FFF8E7 0%, #FFE4D6 100%);
+}
+
+.dogEmoji {
+  font-size: 36px;
+}
+
+.dogName {
+  font-size: 12px;
+  font-weight: 600;
+  color: #5D5D5D;
+}
+
+.detailCard {
+  flex: 1;
+  background: white;
+  border-radius: 24px;
+  padding: 24px;
+  margin-bottom: 24px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.detailName {
+  font-size: 22px;
+  font-weight: 700;
+  color: #3D3D3D;
+  margin: 0 0 8px 0;
+  text-align: center;
+}
+
+.detailDesc {
+  font-size: 15px;
+  color: #5D5D5D;
+  margin: 0 0 20px 0;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.traits {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 20px;
+}
+
+.trait {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.traitIcon {
+  font-size: 18px;
+}
+
+.traitLabel {
+  font-size: 14px;
+  font-weight: 600;
+  color: #5D5D5D;
+}
+
+.specialTrait {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 16px;
+  background: linear-gradient(135deg, #FFF8E7 0%, #FFE4D6 100%);
+  border-radius: 14px;
+}
+
+.specialIcon {
+  font-size: 20px;
+}
+
+.specialText {
+  font-size: 14px;
+  color: #5D5D5D;
+  line-height: 1.4;
+}
+
+.footer {
+  padding-top: 16px;
+}

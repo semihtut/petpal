@@ -1,0 +1,46 @@
+.card {
+  border-radius: 20px;
+  border: none;
+  font-family: inherit;
+  text-align: left;
+  cursor: default;
+  width: 100%;
+}
+
+button.card {
+  cursor: pointer;
+}
+
+/* Variants */
+.default {
+  background: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.elevated {
+  background: white;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+}
+
+/* Padding */
+.padding-none {
+  padding: 0;
+}
+
+.padding-small {
+  padding: 12px;
+}
+
+.padding-medium {
+  padding: 16px;
+}
+
+.padding-large {
+  padding: 24px;
+}

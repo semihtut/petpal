@@ -1,0 +1,153 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: 16px;
+  background: linear-gradient(180deg, #FFF8E7 0%, #FFE4D6 100%);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.backButton {
+  padding: 8px 16px;
+  border: none;
+  background: white;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #5D5D5D;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #3D3D3D;
+  margin: 0;
+}
+
+.counter {
+  padding: 8px 14px;
+  background: white;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 14px;
+  color: #5D5D5D;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.content {
+  flex: 1;
+  overflow-y: auto;
+  padding-bottom: 24px;
+}
+
+.section {
+  margin-bottom: 24px;
+}
+
+.sectionTitle {
+  font-size: 14px;
+  font-weight: 700;
+  color: #8D8D8D;
+  margin: 0 0 12px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.achievementList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.achievementCard {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px;
+}
+
+.achievementCard.unlocked {
+  background: linear-gradient(135deg, rgba(152, 216, 200, 0.1) 0%, rgba(152, 216, 200, 0.05) 100%);
+  border: 1px solid rgba(152, 216, 200, 0.3);
+}
+
+.achievementIcon {
+  font-size: 32px;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.03);
+  border-radius: 12px;
+}
+
+.achievementCard.unlocked .achievementIcon {
+  background: white;
+}
+
+.achievementInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.achievementName {
+  font-size: 14px;
+  font-weight: 600;
+  color: #3D3D3D;
+  margin: 0 0 4px 0;
+}
+
+.achievementDesc {
+  font-size: 12px;
+  color: #8D8D8D;
+  margin: 0;
+}
+
+.progressWrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.progressText {
+  font-size: 11px;
+  font-weight: 600;
+  color: #8D8D8D;
+  white-space: nowrap;
+}
+
+.achievementReward {
+  display: flex;
+  align-items: center;
+}
+
+.rewardText {
+  font-size: 12px;
+  font-weight: 600;
+  color: #FFB085;
+  white-space: nowrap;
+}
+
+.unlockedBadge {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #98D8C8;
+  color: white;
+  border-radius: 50%;
+  font-size: 14px;
+  font-weight: 700;
+}

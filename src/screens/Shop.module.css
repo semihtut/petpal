@@ -1,0 +1,156 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: 16px;
+  background: linear-gradient(180deg, #FFF8E7 0%, #FFE4D6 100%);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.backButton {
+  padding: 8px 16px;
+  border: none;
+  background: white;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #5D5D5D;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #3D3D3D;
+  margin: 0;
+}
+
+.coinBadge {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 14px;
+  background: white;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 14px;
+  color: #5D5D5D;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.categories {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  margin-bottom: 16px;
+  -webkit-overflow-scrolling: touch;
+}
+
+.categories::-webkit-scrollbar {
+  display: none;
+}
+
+.categoryTab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 12px 16px;
+  border: none;
+  border-radius: 16px;
+  background: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-width: 70px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.categoryTab.active {
+  background: linear-gradient(135deg, #FF9B85 0%, #FF7B6B 100%);
+  color: white;
+}
+
+.categoryIcon {
+  font-size: 20px;
+}
+
+.categoryLabel {
+  font-size: 11px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.itemsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  padding-bottom: 24px;
+}
+
+.itemCard {
+  padding: 16px;
+  position: relative;
+}
+
+.itemCard.equipped {
+  border: 2px solid #98D8C8;
+}
+
+.itemContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.rareBadge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  font-size: 16px;
+}
+
+.itemIcon {
+  font-size: 40px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.itemName {
+  font-size: 13px;
+  font-weight: 600;
+  color: #3D3D3D;
+  text-align: center;
+}
+
+.itemEffect {
+  font-size: 11px;
+  color: #98D8C8;
+  font-weight: 600;
+}
+
+.itemAction {
+  display: flex;
+  justify-content: center;
+}
+
+.equippedBadge {
+  font-size: 12px;
+  font-weight: 600;
+  color: #98D8C8;
+  padding: 6px 12px;
+  background: rgba(152, 216, 200, 0.1);
+  border-radius: 8px;
+}

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" fill="#FFF8E7" rx="64"/>
+  <circle cx="256" cy="220" r="140" fill="#8B4513"/>
+  <ellipse cx="190" cy="180" rx="30" ry="45" fill="#5D3A1A"/>
+  <ellipse cx="322" cy="180" rx="30" ry="45" fill="#5D3A1A"/>
+  <circle cx="210" cy="210" r="25" fill="#FFF"/>
+  <circle cx="302" cy="210" r="25" fill="#FFF"/>
+  <circle cx="215" cy="205" r="12" fill="#333"/>
+  <circle cx="297" cy="205" r="12" fill="#333"/>
+  <ellipse cx="256" cy="260" rx="38" ry="30" fill="#333"/>
+  <ellipse cx="256" cy="255" rx="12" ry="8" fill="#FFF" opacity="0.3"/>
+  <path d="M210 295 Q256 340 302 295" stroke="#333" stroke-width="8" fill="none" stroke-linecap="round"/>
+  <text x="256" y="430" text-anchor="middle" font-family="Arial" font-size="64" font-weight="bold" fill="#FF9B85">PetPal</text>
+</svg>

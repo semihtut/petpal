@@ -1,0 +1,180 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100dvh;
+  background: linear-gradient(180deg, #FFF8E7 0%, #FFE4D6 100%);
+  padding: 16px;
+  padding-bottom: 80px;
+  gap: 16px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 8px 0;
+}
+
+.greeting {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.greetingText {
+  font-size: 14px;
+  color: #8D8D8D;
+}
+
+.petName {
+  font-size: 24px;
+  font-weight: 700;
+  color: #3D3D3D;
+}
+
+.headerStats {
+  display: flex;
+  gap: 8px;
+}
+
+.coinBadge,
+.levelBadge {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 12px;
+  background: white;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 14px;
+  color: #5D5D5D;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.petArea {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+}
+
+.statsArea {
+  margin-bottom: 8px;
+}
+
+.actionsArea {
+  margin-bottom: 8px;
+}
+
+.bottomNav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-around;
+  padding: 12px 16px;
+  padding-bottom: max(12px, env(safe-area-inset-bottom));
+  background: white;
+  border-radius: 24px 24px 0 0;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.navButton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 12px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.navButton:active {
+  transform: scale(0.95);
+}
+
+.navButton span:first-child {
+  font-size: 20px;
+}
+
+.navButton span:last-child {
+  font-size: 10px;
+  font-weight: 600;
+  color: #8D8D8D;
+}
+
+/* Event Modal */
+.eventOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  padding: 24px;
+}
+
+.eventModal {
+  background: white;
+  border-radius: 24px;
+  padding: 32px 24px;
+  text-align: center;
+  max-width: 300px;
+  width: 100%;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+}
+
+.eventIcon {
+  font-size: 48px;
+  margin-bottom: 16px;
+}
+
+.eventTitle {
+  font-size: 20px;
+  font-weight: 700;
+  color: #3D3D3D;
+  margin: 0 0 12px 0;
+}
+
+.eventMessage {
+  font-size: 16px;
+  color: #5D5D5D;
+  margin: 0 0 16px 0;
+  line-height: 1.5;
+}
+
+.eventReward {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 20px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #3D3D3D;
+}
+
+.eventButton {
+  width: 100%;
+  padding: 14px 24px;
+  border: none;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #FF9B85 0%, #FF7B6B 100%);
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.eventButton:active {
+  transform: scale(0.98);
+}

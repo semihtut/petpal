@@ -1,0 +1,75 @@
+.container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.labelContainer {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  min-width: 28px;
+}
+
+.icon {
+  font-size: 16px;
+}
+
+.label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #5D5D5D;
+}
+
+.track {
+  flex: 1;
+  background: rgba(0, 0, 0, 0.06);
+  border-radius: 100px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.track.low {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.track.critical {
+  animation: pulse 1s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(255, 123, 107, 0);
+  }
+  50% {
+    box-shadow: 0 0 0 3px rgba(255, 123, 107, 0.3);
+  }
+}
+
+.fill {
+  height: 100%;
+  border-radius: 100px;
+  transition: background-color 0.3s ease;
+}
+
+.value {
+  font-size: 12px;
+  font-weight: 600;
+  color: #5D5D5D;
+  min-width: 36px;
+  text-align: right;
+}
+
+/* Sizes */
+.small .track {
+  height: 6px;
+}
+
+.medium .track {
+  height: 10px;
+}
+
+.large .track {
+  height: 14px;
+}

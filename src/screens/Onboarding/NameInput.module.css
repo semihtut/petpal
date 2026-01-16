@@ -1,0 +1,91 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: 24px;
+  background: linear-gradient(180deg, #FFF8E7 0%, #FFE4D6 100%);
+}
+
+.backButton {
+  align-self: flex-start;
+  padding: 8px 16px;
+  border: none;
+  background: white;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #5D5D5D;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 0;
+}
+
+.petPreview {
+  margin-bottom: 32px;
+}
+
+.petEmoji {
+  font-size: 100px;
+  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.1));
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #3D3D3D;
+  margin: 0 0 24px 0;
+  text-align: center;
+}
+
+.input {
+  width: 100%;
+  max-width: 280px;
+  padding: 16px 20px;
+  border: 3px solid transparent;
+  border-radius: 16px;
+  background: white;
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
+  color: #3D3D3D;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.input:focus {
+  border-color: #FF9B85;
+}
+
+.input::placeholder {
+  color: #BDBDBD;
+  font-weight: 500;
+}
+
+.suggestion {
+  margin-top: 16px;
+  font-size: 14px;
+  color: #8D8D8D;
+}
+
+.suggestionButton {
+  border: none;
+  background: none;
+  color: #FF9B85;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.footer {
+  padding-top: 16px;
+}

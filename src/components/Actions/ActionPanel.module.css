@@ -1,0 +1,16 @@
+.container {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
+  backdrop-filter: blur(8px);
+}
+
+@media (max-width: 400px) {
+  .container {
+    gap: 6px;
+  }
+}

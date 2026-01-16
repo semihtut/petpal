@@ -1,0 +1,311 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: 24px;
+  background: linear-gradient(180deg, #FFF8E7 0%, #FFE4D6 100%);
+}
+
+.container.nightTheme {
+  background: linear-gradient(180deg, #1a1a2e 0%, #16213e 100%);
+}
+
+.nightTheme .header,
+.nightTheme .title,
+.nightTheme .score {
+  color: white;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #3D3D3D;
+  margin: 0;
+}
+
+.score {
+  font-size: 16px;
+  font-weight: 600;
+  color: #5D5D5D;
+}
+
+/* Ready Screen */
+.readyScreen {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+}
+
+.instructions {
+  text-align: center;
+}
+
+.instructionIcon {
+  font-size: 64px;
+  display: block;
+  margin-bottom: 16px;
+}
+
+.instructions p {
+  font-size: 18px;
+  color: #5D5D5D;
+  margin: 0;
+}
+
+.buttons {
+  width: 100%;
+  max-width: 280px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Game Area */
+.gameArea {
+  flex: 1;
+  position: relative;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 24px;
+  overflow: hidden;
+  min-height: 300px;
+  touch-action: none;
+}
+
+.gameArea.parkBackground {
+  background: linear-gradient(180deg, #87CEEB 0%, #98D8C8 50%, #7BC88C 100%);
+}
+
+/* Ball Catch */
+.ball {
+  position: absolute;
+  font-size: 32px;
+  transform: translateX(-50%);
+}
+
+.pet {
+  position: absolute;
+  bottom: 10%;
+  font-size: 48px;
+  transform: translateX(-50%);
+}
+
+/* Bubble Pop */
+.bubble {
+  position: absolute;
+  font-size: 36px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transform: translate(-50%, -50%);
+  padding: 0;
+}
+
+.petCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 64px;
+  opacity: 0.3;
+}
+
+/* Bone Search */
+.searchPet {
+  position: absolute;
+  bottom: 5%;
+  right: 10%;
+  font-size: 48px;
+}
+
+.digSpot {
+  position: absolute;
+  font-size: 32px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transform: translate(-50%, -50%);
+  padding: 8px;
+  transition: transform 0.2s ease;
+}
+
+.digSpot:not(.revealed):hover {
+  transform: translate(-50%, -50%) scale(1.2);
+}
+
+.digSpot.revealed {
+  cursor: default;
+}
+
+/* Portion Select */
+.portionScreen {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  padding-top: 20px;
+}
+
+.bowl {
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.bowlInner {
+  font-size: 80px;
+}
+
+.foodInBowl {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 24px;
+}
+
+.hungryPet {
+  font-size: 64px;
+}
+
+.portionOptions {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.portionCard {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 16px 8px;
+  border: 3px solid transparent;
+  border-radius: 16px;
+  background: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.portionCard.selectedPortion {
+  border-color: #FF9B85;
+  background: #FFF8E7;
+}
+
+.portionScoops {
+  font-size: 20px;
+}
+
+.portionLabel {
+  font-size: 14px;
+  font-weight: 700;
+  color: #3D3D3D;
+}
+
+.portionDesc {
+  font-size: 11px;
+  color: #8D8D8D;
+  text-align: center;
+}
+
+.portionHunger {
+  font-size: 12px;
+  font-weight: 600;
+  color: #FF9B85;
+}
+
+.portionBonus {
+  font-size: 11px;
+  color: #98D8C8;
+  font-weight: 600;
+}
+
+/* Dream Catch */
+.sleepingPet {
+  position: absolute;
+  bottom: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 64px;
+}
+
+.sleepZzz {
+  position: absolute;
+  top: -10px;
+  right: -20px;
+  font-size: 24px;
+  animation: float 2s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(10deg);
+  }
+}
+
+.dream {
+  position: absolute;
+  font-size: 36px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transform: translate(-50%, -50%);
+  padding: 0;
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.5));
+}
+
+/* Result Screen */
+.resultScreen {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.resultIcon {
+  font-size: 72px;
+}
+
+.resultTitle {
+  font-size: 24px;
+  font-weight: 700;
+  color: #3D3D3D;
+  margin: 0;
+}
+
+.nightTheme .resultTitle {
+  color: white;
+}
+
+.resultScore {
+  font-size: 32px;
+  font-weight: 700;
+  color: #FF9B85;
+  margin: 0;
+}
+
+.bonus {
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #FFE4B5 0%, #FFD699 100%);
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #5D5D5D;
+}
