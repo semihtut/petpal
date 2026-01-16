@@ -61,6 +61,13 @@ export const en = {
   'statFull.energy': '{name} is full of energy! ⚡',
   'statFull.hygiene': '{name} is squeaky clean! ✨',
 
+  // ==================== NAV ====================
+  'nav.tasks': 'Tasks',
+  'nav.shop': 'Shop',
+  'nav.wardrobe': 'Closet',
+  'nav.achievements': 'Badges',
+  'nav.settings': 'Settings',
+
   // ==================== TASKS ====================
   'tasks.title': 'Tasks',
   'tasks.daily': 'Daily Tasks',

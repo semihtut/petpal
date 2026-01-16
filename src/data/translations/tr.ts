@@ -61,6 +61,13 @@ export const tr = {
   'statFull.energy': '{name} enerjisi yerinde! ⚡',
   'statFull.hygiene': '{name} pırıl pırıl temiz! ✨',
 
+  // ==================== NAV ====================
+  'nav.tasks': 'Görev',
+  'nav.shop': 'Dükkan',
+  'nav.wardrobe': 'Dolap',
+  'nav.achievements': 'Rozet',
+  'nav.settings': 'Ayar',
+
   // ==================== TASKS ====================
   'tasks.title': 'Görevler',
   'tasks.daily': 'Günlük Görevler',
